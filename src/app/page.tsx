@@ -18,25 +18,24 @@ export default async function Home() {
     <div>
       <div className="cuerpo">
         <div className="sidemenu">
-          <img src="/MENU.png" alt="Menu" className="menu" />
+          <img src="" alt="Logo"/>
+          <a href="">Aprender</a>
+          <a href="">Perfil</a>
+          <a href="">Desafíos</a>
         </div>
         <div className="top">
           <img src="/flecha1.png" alt="Flecha" className="flecha" />
           <img src="/corazon1.png" alt="Corazon" className="corazon" />
         </div>
         <div className="nivel">
-          <Opc1/>
-          <div className="rta1">{respuesta1}</div>
-          <Opc2/>
-          <div className="prg">{primeraPregunta}</div>  
-          <div className="rta2">{respuesta2}</div>
-          <Opc3/>
-          <div className="rta3">{respuesta3}</div>
+          <div className="pregunta">{primeraPregunta}</div>
+          <Opc1 respuesta={respuesta1} />
+          <Opc2 respuesta={respuesta2} />  
+          <Opc3 respuesta={respuesta3}/>
         </div>
         <div className="footer">
           <img src="/continuar.png" alt="continuar" className="continuar"/>
         </div>
-        {JSON.stringify(preguntas, null, 2)}
       </div>
     </div>
   );

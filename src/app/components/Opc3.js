@@ -1,21 +1,14 @@
 "use client";
 
 import { useState } from 'react';
+import '../../app/globals.css';
 
-export default function Opc3() {
-  const [imageSrc, setImageSrc] = useState('./Opc.png');
-
-  const handleImageClick = () => {
-    setImageSrc((prevSrc) => (prevSrc === './Opc.png' ? './Incorrecta.png' : './Opc.png'));
-  };
+export default function Opc3({respuesta}) {
 
   return (
-    <div>
-      <img 
-        src={imageSrc}
-        className = "opc3"
-        onClick={handleImageClick} 
-      />
+    <div className='opc3'>
+      <div className='sombrita'></div>
+      <div className='rta'>{respuesta}</div>
     </div>
   );
 }
