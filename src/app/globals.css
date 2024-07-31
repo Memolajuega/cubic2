@@ -10,7 +10,7 @@
 
 .sidemenu {
   width: 27%;
-  background-color: #9353C0;
+  background-color: #4b1672;
   height: 100vh;
   left: 0;
   position: absolute;
@@ -19,7 +19,7 @@
 .top {
   width: 73%;
   background-color: aqua;
-  height: 15%;
+  height: 18%;
   right: 0;
   position: absolute;
 }
@@ -27,10 +27,20 @@
 .nivel {
   width: 73%;
   background-color: #240433;
-  height: 85%;
+  height: 65%;
   right: 0;
   position: absolute;
   bottom: 0;
+  margin-bottom: 8%;
+}
+
+.footer {
+  height: 17%;
+  width: 73%;
+  background-color: #240433;
+  bottom: 0;
+  right: 0;
+  position: absolute;
 }
 
 .opc1 {
@@ -86,5 +96,57 @@
 
 .rta {
   text-align: center;
+  float: center;
+  margin-top: 7vw;
+  color: white;
+}
+
+.anterior {
   float: left;
+  width: 13.7vw;
+  height: 3.7vw;
+  margin-left: 12vw;
+  text-align: center;
+  background-color: #4B1572;
+  border-radius: 5vw;
+  box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.9);
+}
+
+.anterior h2 {
+  margin-top: 0.8vw;
+  color: white;
+}
+
+.continuar {
+  float: right;
+  width: 13.7vw;
+  height: 3.7vw;
+  margin-right: 11.5vw;
+  text-align: center;
+  background-color: #4B1572;
+  border-radius: 5vw;
+  box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.9);
+}
+
+.continuar h2 {
+  margin-top: 0.8vw;
+  color: white;
+}
+
+.sidemenu a {
+  text-decoration: none;
+  color: white;
+  width: 19vw;
+  display: grid;
+  justify-items: start;
+  margin-top: 3vw;
+  margin-left: 8vw;
+  font-size: 2vw;
+}
+
+h1 {
+  font-size: 3vw;
+  text-align: center;
+  margin-top: 3vw;
+  color: white;
 }

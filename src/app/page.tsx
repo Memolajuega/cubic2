@@ -18,14 +18,13 @@ export default async function Home() {
     <div>
       <div className="cuerpo">
         <div className="sidemenu">
-          <img src="" alt="Logo"/>
+          <h1>CUBIC</h1>
           <a href="">Aprender</a>
           <a href="">Perfil</a>
           <a href="">Desafíos</a>
         </div>
         <div className="top">
           <img src="/flecha1.png" alt="Flecha" className="flecha" />
-          <img src="/corazon1.png" alt="Corazon" className="corazon" />
         </div>
         <div className="nivel">
           <div className="pregunta">{primeraPregunta}</div>
@@ -34,7 +33,12 @@ export default async function Home() {
           <Opc3 respuesta={respuesta3}/>
         </div>
         <div className="footer">
-          <img src="/continuar.png" alt="continuar" className="continuar"/>
+          <div className = "anterior">
+            <h2>Anterior</h2>
+          </div>
+          <div className = "continuar">
+            <h2>Continuar</h2>
+          </div>
         </div>
       </div>
     </div>
