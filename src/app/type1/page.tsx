@@ -14,6 +14,11 @@ export default async function Home() {
   const respuesta2 = preguntas ? preguntas[0].Rta2 : '';
   const respuesta3 = preguntas ? preguntas[0].Rta3 : '';
 
+  console.log(primeraPregunta);
+  console.log(respuesta1);
+  console.log(respuesta2);
+  console.log(respuesta3);
+
   return (
     <div>
       <div className="cuerpo">
