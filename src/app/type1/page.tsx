@@ -1,6 +1,5 @@
 import styles from "./page.module.css";
 import { createClient } from "../components/(supabase)/clientClient";
-import Barra from "../components/Barra"
 import Opc1Type1 from "../components/Opc1-Type1"
 import Opc2Type1 from "../components/Opc2-Type1"
 import Opc3Type1 from "../components/Opc3-Type1"
@@ -30,6 +29,7 @@ export default async function Home() {
         </div>
         <div className="top">
           <img src="/flecha1.png" alt="Flecha" className="flecha" />
+          <div className="barra"></div>
         </div>
         <div className="nivel">
           <div className="pregunta">{primeraPregunta}</div>

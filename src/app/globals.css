@@ -21,7 +21,7 @@
 
 .top {
   width: 73%;
-  background-color: aqua;
+  background-color: #240433;
   height: 18%;
   right: 0;
   position: absolute;
@@ -38,7 +38,7 @@
 }
 
 .footer {
-  height: 17%;
+  height: 18%;
   width: 73%;
   background-color: #240433;
   bottom: 0;
@@ -112,10 +112,11 @@
   background-color: #4B1572;
   border-radius: 5vw;
   box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.9);
+  margin-top: 2vh;
 }
 
 .anterior h2 {
-  margin-top: 0.8vw;
+  margin-top: 0.9vw;
   color: white;
 }
 
@@ -128,10 +129,11 @@
   background-color: #4B1572;
   border-radius: 5vw;
   box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.9);
+  margin-top: 2vh;
 }
 
 .continuar h2 {
-  margin-top: 0.8vw;
+  margin-top: 0.9vw;
   color: white;
 }
 
@@ -192,4 +194,38 @@ h1 {
   text-align: center;
   margin-top: 2.3vw;
   color: white;
+}
+
+.barra {
+  width: 49vw;
+  background-color: #4B1572;
+  height: 4vh;
+  float: right;
+  margin-top: 7vh;
+  margin-right: 11vw;
+  border-radius: 1vw;
+}
+
+.barraprogreso {
+  
+}
+
+.estrellas {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.estrellas h1 {
+  margin-top: 5.3vh;
+  margin-right: 6vw;
+}
+
+.estrellas .star {
+  position: absolute;
+  width: 4vw;
+  right: 0;
+  top: 0;
+  margin-top: 1.6vw;
+  margin-right: 1.5vw;
 }
