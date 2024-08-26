@@ -26,7 +26,10 @@ export default async function Home() {
         </div>
         <div className="top">
           <img src="/flecha1.png" alt="Flecha" className="flecha" />
-          <div className="barra"></div>
+          <div className="barrafija">
+            <div className="progreso">
+            </div>
+          </div>
           <div className="estrellas">
             <h1>1</h1>
             <img src="/star.png" alt="Estrellas" className="star"/>

@@ -196,7 +196,7 @@ h1 {
   color: white;
 }
 
-.barra {
+.barrafija {
   width: 49vw;
   background-color: #4B1572;
   height: 4vh;
@@ -206,8 +206,12 @@ h1 {
   border-radius: 1vw;
 }
 
-.barraprogreso {
-  
+.progreso {
+  width: 20%;
+  float: left;
+  background-color: #3F9557;
+  height: 100%;
+  border-radius: 1vw;
 }
 
 .estrellas {
