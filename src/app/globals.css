@@ -100,8 +100,9 @@
 
 .rta {
   text-align: center;
-  margin-top: 7vw;
+  margin-top: 6.5vw;
   color: white;
+  font-size: 2.3vw;
 }
 
 .anterior {
@@ -234,4 +235,36 @@ h1 {
   top: 0;
   margin-top: 1.6vw;
   margin-right: 1.5vw;
+}
+
+.victoria {
+  background-color: #240433;
+  width: 100%;
+}
+
+.cuadro {
+  background-color: #9353C0;
+  margin-top: 30vh;
+  height: 50vh;
+  margin-left: 39vw;
+  width: 51vw;
+  border-radius: 2vw;
+}
+
+.cuadro h1 {
+  text-align: center;
+  padding-top: 10vh;
+}
+
+.cuadro h2 {
+  text-align: center;
+  padding-top: 1vh;
+  font-size: 2.5vw;
+  color: white;
+}
+
+.cuadro img {
+  width: 5vw;
+  margin-left: 45%;
+  margin-top: -2vh;
 }
