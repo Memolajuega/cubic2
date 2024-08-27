@@ -3,20 +3,22 @@
 import { useState } from 'react';
 import '../../app/globals.css';
 
-export default function Opc2({respuesta}) {
-
+export default function Opc2({ respuesta }) {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = () => {
-    setIsClicked(!isClicked); 
+    setIsClicked(true);
+    setTimeout(() => {
+      setIsClicked(false);
+    }, 2000);
   };
 
-  const backgroundColor = isClicked ? '#4B9C61' : '#4B1572'; 
+  const backgroundColor = isClicked ? '#4B9C61' : '#4B1572';
 
   return (
     <div className='opc2'
-    style={{ backgroundColor }} 
-    onClick={handleClick}>
+      style={{ backgroundColor }}
+      onClick={handleClick}>
       <div className='sombrita'></div>
       <div className='rta'>{respuesta}</div>
     </div>
