@@ -219,12 +219,12 @@ h1 {
 
 .estrellas {
   position: absolute;
-  margin-top: -570px;
+  margin-top: -520px;
   right: 0;
 }
 
 .estrellas h1 {
-  margin-top: 5.3vh;
+  margin-top: 5vh;
   margin-right: 6vw;
 }
 
