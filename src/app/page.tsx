@@ -73,9 +73,15 @@ export default function Home() {
       <div className="cuerpo">
         <div className="sidemenu">
           <h1>CUBIC</h1>
-          <a href="">Aprender</a>
-          <a href="">Perfil</a>
-          <a href="">Desafíos</a>
+          <div>
+            <img src="/brain.png" alt="" />
+            <a href="">Aprender</a></div>
+          <div>
+            <img src="/user.png" alt="" />
+            <a href="">Perfil</a></div>
+          <div>
+            <img src="/target.png" alt="" />
+            <a href="">Desafíos</a></div>
         </div>
         <div className="top">
           <img src="/flecha1.png" alt="Flecha" className="flecha" />

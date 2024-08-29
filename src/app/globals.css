@@ -268,3 +268,10 @@ h1 {
   margin-left: 45%;
   margin-top: -2vh;
 }
+
+.sidemenu div img {
+  width: 3.6vw; 
+  float: left;
+  margin-left: 3vw;
+  margin-top: -2vh;
+}
