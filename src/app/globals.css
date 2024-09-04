@@ -10,6 +10,7 @@
   margin: 0px;
   float: left;
   font-family: "Kufam", sans-serif;
+  background-color: #240433;
 }
 
 .sidemenu {
@@ -219,7 +220,7 @@ h1 {
 
 .estrellas {
   position: absolute;
-  margin-top: -520px;
+  margin-top: -81vh;
   right: 0;
 }
 
