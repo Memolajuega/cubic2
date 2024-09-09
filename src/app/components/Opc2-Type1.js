@@ -2,15 +2,16 @@
 
 import { useState } from 'react';
 import '../../app/globals.css'; 
-export default function Opc2Type1({ respuesta }) {
-  
-  const [isClicked, setIsClicked] = useState(false);
 
+export default function Opc2Type1({ respuesta, isClicked, setIsClicked }) {
   const handleClick = () => {
-    setIsClicked(!isClicked); 
+    setIsClicked(true);
   };
 
-  const backgroundColor = isClicked ? '#4B9C61' : '#4B1572'; 
+  const backgroundColor = isClicked ? '#4B9C61' : '#4B1572';
+  const sombraBackground = isClicked
+  ? 'radial-gradient(ellipse at center, rgba(152, 206, 167, 1) 20%, rgba(152, 206, 167, 0) 100%)'
+  : 'radial-gradient(ellipse at center, rgba(156, 81, 183, 1) 20%, rgba(156, 81, 183, 0) 100%)';
 
   return (
     <div
@@ -18,7 +19,7 @@ export default function Opc2Type1({ respuesta }) {
       style={{ backgroundColor }} 
       onClick={handleClick}
     >
-      <div className='rta-type1'>{respuesta}</div>
+      <div className='rta-type2'>{respuesta}</div>
     </div>
   );
 }

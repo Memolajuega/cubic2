@@ -1,50 +1,120 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 import { createClient } from "../components/(supabase)/clientClient";
 import Opc1Type1 from "../components/Opc1-Type1"
 import Opc2Type1 from "../components/Opc2-Type1"
 import Opc3Type1 from "../components/Opc3-Type1"
+import Indexador from "../components/indexador";
 
-export default async function Home() {
-  const supabase = createClient()
+export default function Home() {
+  const [index, setIndex] = useState(0);
+  const [pregunta, setPregunta] = useState('');
+  const [respuesta1, setRespuesta1] = useState('');
+  const [respuesta2, setRespuesta2] = useState('');
+  const [respuesta3, setRespuesta3] = useState('');
+  const [opc1type1Clicked, setOpc1type1Clicked] = useState(false);
+  const [opc2type1Clicked, setOpc2type1Clicked] = useState(false);
+  const [opc3type1Clicked, setOpc3type1Clicked] = useState(false);
 
-  const {data: preguntas} = await supabase.from("preguntas").select("*")
-  const primeraPregunta = preguntas ? preguntas[0].Pregunta : '';
-  const respuesta1 = preguntas ? preguntas[0].Rta1 : '';
-  const respuesta2 = preguntas ? preguntas[0].Rta2 : '';
-  const respuesta3 = preguntas ? preguntas[0].Rta3 : '';
+  const supabase = createClient();
+  const totalPreguntas = 5;
 
-  console.log(primeraPregunta);
-  console.log(respuesta1);
-  console.log(respuesta2);
-  console.log(respuesta3);
+  const fetchPreguntas = async () => {
+    const { data: preguntas } = await supabase.from("preguntas").select("*");
+    
+    if (preguntas && preguntas.length > index) {
+      setPregunta(preguntas[index].Pregunta);
+      setRespuesta1(preguntas[index].Rta1);
+      setRespuesta2(preguntas[index].Rta2);
+      setRespuesta3(preguntas[index].Rta3);
+    }
+  };
+
+  useEffect(() => {
+    fetchPreguntas();
+    setOpc1type1Clicked(false); 
+    setOpc2type1Clicked(false); 
+    setOpc3type1Clicked(false);
+  }, [index]);
+
+  const handleIncrementIndex = () => {
+    setIndex(prevIndex => Math.min(prevIndex + 1, totalPreguntas));
+  };
+
+  const handleDecrementIndex = () => {
+    setIndex(prevIndex => Math.max(0, prevIndex - 1));
+  };
+
+  const progresoAncho = ((index) / totalPreguntas) * 100 + '%';
+
+  const handleOpc1Click = () => {
+    setOpc1type1Clicked(true);
+  };
+
+  const handleOpc2Click = () => {
+    setOpc2type1Clicked(true);
+  };
+
+  const handleOpc3Click = () => {
+    setOpc3type1Clicked(true);
+  };
+
+  const handleContinuarClick = () => {
+    handleIncrementIndex();
+    setOpc1type1Clicked(false); 
+    setOpc2type1Clicked(false); 
+    setOpc3type1Clicked(false);
+  };
 
   return (
     <div>
       <div className="cuerpo">
         <div className="sidemenu">
           <h1>CUBIC</h1>
-          <a href="">Aprender</a>
-          <a href="">Perfil</a>
-          <a href="">Desafíos</a>
+          <div>
+            <img src="/brain.png" alt="" />
+            <a href="">Aprender</a></div>
+          <div>
+            <img src="/user.png" alt="" />
+            <a href="">Perfil</a></div>
+          <div>
+            <img src="/target.png" alt="" />
+            <a href="">Desafíos</a></div>
         </div>
         <div className="top">
           <img src="/flecha1.png" alt="Flecha" className="flecha" />
-          <div className="barra"></div>
-        </div>
-        <div className="nivel">
-          <div className="pregunta">{primeraPregunta}</div>
-          <Opc1Type1 respuesta={respuesta1} />
-          <Opc2Type1 respuesta={respuesta2} />  
-          <Opc3Type1 respuesta={respuesta3}/>
-        </div>
-        <div className="footer">
-          <div className = "anterior">
-            <h2>Anterior</h2>
-          </div>
-          <div className = "continuar">
-            <h2>Continuar</h2>
+          <div className="barrafija">
+            <div className="progreso" style={{ width: progresoAncho }}></div>
           </div>
         </div>
+
+        {index < totalPreguntas ? (
+          <div className="nivel">
+            <div className="pregunta">{pregunta}</div>
+            <Opc1Type1 respuesta={respuesta1} isClicked={opc1type1Clicked} setIsClicked={setOpc1type1Clicked} />
+            <Opc2Type1 respuesta={respuesta2} isClicked={opc2type1Clicked} setIsClicked={setOpc2type1Clicked} />
+            <Opc3Type1 respuesta={respuesta3} isClicked={opc3type1Clicked} setIsClicked={setOpc3type1Clicked} />
+          </div>
+        ) : (
+          <div className="victoria">
+            <div className="cuadro">
+              <h1>¡Felicitaciones, ganaste!</h1>
+              <h2>Sumaste {index} estrellas</h2>
+              <img src="/star.png" alt="estrella" className="star"/>
+            </div>
+          </div>
+        )}
+
+        {index < totalPreguntas && (
+          <Indexador 
+            onIncrement={handleContinuarClick} 
+            onDecrement={handleDecrementIndex} 
+            index={index}
+            showContinuar={opc2type1Clicked}
+          />
+        )}
       </div>
     </div>
   );
