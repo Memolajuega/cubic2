@@ -19,10 +19,10 @@ export default function Home() {
   const [opc3type1Clicked, setOpc3type1Clicked] = useState(false);
 
   const supabase = createClient();
-  const totalPreguntas = 5;
+  const totalPreguntas = 4;
 
   const fetchPreguntas = async () => {
-    const { data: preguntas } = await supabase.from("preguntas").select("*");
+    const { data: preguntas } = await supabase.from("textolargo").select("*");
     
     if (preguntas && preguntas.length > index) {
       setPregunta(preguntas[index].Pregunta);
