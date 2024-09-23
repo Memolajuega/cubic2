@@ -7,6 +7,7 @@ import Opc1 from "./components/Opc1";
 import Opc2 from "./components/Opc2";
 import Opc3 from "./components/Opc3";
 import Indexador from "./components/indexador";
+import Link from 'next/link';
 
 export default function Home() {
   const [index, setIndex] = useState(0);
@@ -84,7 +85,9 @@ export default function Home() {
             <a href="">Desafíos</a></div>
         </div>
         <div className="top">
-          <img src="/flecha1.png" alt="Flecha" className="flecha" />
+          <Link href="/home">
+            <img src="/flecha1.png" alt="Flecha" className="flecha" />
+          </Link>
           <div className="barrafija">
             <div className="progreso" style={{ width: progresoAncho }}></div>
           </div>

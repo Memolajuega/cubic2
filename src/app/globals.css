@@ -13,6 +13,10 @@
   background-color: #240433;
 }
 
+a {
+  text-decoration: none;
+}
+
 .sidemenu {
   width: 27%;
   background-color: #4b1672;
@@ -285,9 +289,84 @@ h1 {
   margin-top: -2vh;
 }
 
+.nvl1 {
+  width: 17vw;
+  left: 0;
+  height: 30vh;
+  position: absolute;
+  margin-left: 35vw;
+  margin-top: 15vh;
+  text-align: center;
+}
+
+.box1 {
+  background-color: #9353C0;
+  height: 20vh;
+  border-radius: 1.6vw;
+}
+
+.nvl1 img {
+  width: 5vw;
+}
+
+.box1 h1 {
+  padding-top: 6.5vh;
+  margin-top: 2.5vh;
+}
+
 .sidemenu div img {
   width: 3.6vw; 
   float: left;
   margin-left: 3vw;
   margin-top: -2vh;
+}
+
+.nvl2 {
+  width: 17vw;
+  left: 0;
+  height: 30vh;
+  position: absolute;
+  margin-left: 75vw;
+  margin-top: 15vh;
+  text-align: center;
+}
+
+.box2 {
+  background-color: #9353C0;
+  height: 20vh;
+  border-radius: 1.6vw;
+}
+
+.nvl2 img {
+  width: 5vw;
+}
+
+.box2 h1 {
+  padding-top: 6.5vh;
+  margin-top: 2.5vh;
+}
+
+.nvl3 {
+  width: 17vw;
+  left: 0;
+  height: 30vh;
+  position: absolute;
+  margin-left: 55vw;
+  margin-top: 50vh;
+  text-align: center;
+}
+
+.box3 {
+  background-color: #9353C0;
+  height: 20vh;
+  border-radius: 1.6vw;
+}
+
+.nvl3 img {
+  width: 5vw;
+}
+
+.box3 h1 {
+  padding-top: 6.5vh;
+  margin-top: 2.5vh;
 }
