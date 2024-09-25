@@ -43,9 +43,11 @@ export default function Home() {
 
         <div className="nvl3">
           <img src="/star.png" alt="" />
+          <Link href="/type2">
           <div className="box3">
             <h1>NIVEL 3</h1>
           </div>
+          </Link>
         </div>
       </div>
     </div>
