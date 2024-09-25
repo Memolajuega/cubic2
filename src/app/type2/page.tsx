@@ -14,7 +14,7 @@ export default function Home() {
   const [opc2Clicked, setOpc2Clicked] = useState(false);
   const [userResponse, setUserResponse] = useState('');
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserResponse(e.target.value);
   };
 
@@ -86,7 +86,7 @@ export default function Home() {
         {index < totalPreguntas ? (
           <div className="nivel">
             <div className="pregunta">{pregunta}</div>
-            <Opc2 respuesta={respuesta2} isClicked={opc2Clicked} setIsClicked={setOpc2Clicked} /> 
+            <Opc2 respuesta={respuesta2} isClicked={opc2Clicked} setIsClicked={setOpc2Clicked} />
             <input 
               type="text" 
               value={userResponse} 
