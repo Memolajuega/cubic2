@@ -3,9 +3,9 @@
 import { useState, useEffect } from "react";
 import styles from "./page.module.css";
 import { createClient } from "../components/(supabase)/clientClient";
-import Opc1Type1 from "../components/Opc1-Type1"
-import Opc2Type1 from "../components/Opc2-Type1"
-import Opc3Type1 from "../components/Opc3-Type1"
+import Opc1 from "../components/Opc1";
+import Opc2 from "../components/Opc2";
+import Opc3 from "../components/Opc3";
 import Indexador from "../components/indexador";
 import Link from 'next/link';
 
@@ -15,15 +15,15 @@ export default function Home() {
   const [respuesta1, setRespuesta1] = useState('');
   const [respuesta2, setRespuesta2] = useState('');
   const [respuesta3, setRespuesta3] = useState('');
-  const [opc1type1Clicked, setOpc1type1Clicked] = useState(false);
-  const [opc2type1Clicked, setOpc2type1Clicked] = useState(false);
-  const [opc3type1Clicked, setOpc3type1Clicked] = useState(false);
+  const [opc1Clicked, setOpc1Clicked] = useState(false);
+  const [opc2Clicked, setOpc2Clicked] = useState(false);
+  const [opc3Clicked, setOpc3Clicked] = useState(false);
 
   const supabase = createClient();
-  const totalPreguntas = 4;
+  const totalPreguntas = 5;
 
   const fetchPreguntas = async () => {
-    const { data: preguntas } = await supabase.from("textolargo").select("*");
+    const { data: preguntas } = await supabase.from("preguntas").select("*");
     
     if (preguntas && preguntas.length > index) {
       setPregunta(preguntas[index].Pregunta);
@@ -35,9 +35,9 @@ export default function Home() {
 
   useEffect(() => {
     fetchPreguntas();
-    setOpc1type1Clicked(false); 
-    setOpc2type1Clicked(false); 
-    setOpc3type1Clicked(false);
+    setOpc1Clicked(false); 
+    setOpc2Clicked(false); 
+    setOpc3Clicked(false);
   }, [index]);
 
   const handleIncrementIndex = () => {
@@ -51,22 +51,22 @@ export default function Home() {
   const progresoAncho = ((index) / totalPreguntas) * 100 + '%';
 
   const handleOpc1Click = () => {
-    setOpc1type1Clicked(true);
+    setOpc1Clicked(true);
   };
 
   const handleOpc2Click = () => {
-    setOpc2type1Clicked(true);
+    setOpc2Clicked(true);
   };
 
   const handleOpc3Click = () => {
-    setOpc3type1Clicked(true);
+    setOpc3Clicked(true);
   };
 
   const handleContinuarClick = () => {
     handleIncrementIndex();
-    setOpc1type1Clicked(false); 
-    setOpc2type1Clicked(false); 
-    setOpc3type1Clicked(false);
+    setOpc1Clicked(false); 
+    setOpc2Clicked(false); 
+    setOpc3Clicked(false);
   };
 
   return (
@@ -96,9 +96,9 @@ export default function Home() {
         {index < totalPreguntas ? (
           <div className="nivel">
             <div className="pregunta">{pregunta}</div>
-            <Opc1Type1 respuesta={respuesta1} isClicked={opc1type1Clicked} setIsClicked={setOpc1type1Clicked} />
-            <Opc2Type1 respuesta={respuesta2} isClicked={opc2type1Clicked} setIsClicked={setOpc2type1Clicked} />
-            <Opc3Type1 respuesta={respuesta3} isClicked={opc3type1Clicked} setIsClicked={setOpc3type1Clicked} />
+            <Opc1 respuesta={respuesta1} isClicked={opc1Clicked} setIsClicked={setOpc1Clicked} />
+            <Opc2 respuesta={respuesta2} isClicked={opc2Clicked} setIsClicked={setOpc2Clicked} />
+            <Opc3 respuesta={respuesta3} isClicked={opc3Clicked} setIsClicked={setOpc3Clicked} />
           </div>
         ) : (
           <div className="victoria">
@@ -115,7 +115,7 @@ export default function Home() {
             onIncrement={handleContinuarClick} 
             onDecrement={handleDecrementIndex} 
             index={index}
-            showContinuar={opc2type1Clicked}
+            showContinuar={opc2Clicked}
           />
         )}
       </div>

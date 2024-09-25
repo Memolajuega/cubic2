@@ -21,6 +21,7 @@ export default function Home() {
   const handleSubmit = () => {
     if (userResponse === respuesta2) {
       setOpc2Clicked(true); // Esto habilita el botón de "Continuar"
+      setUserResponse(''); // Borra el campo de respuesta
     } else {
       alert("Respuesta incorrecta. Intenta de nuevo.");
     }
@@ -53,10 +54,6 @@ export default function Home() {
 
   const progresoAncho = ((index) / totalPreguntas) * 100 + '%';
 
-  const handleOpc2Click = () => {
-    setOpc2Clicked(true);
-  };
-
   const handleContinuarClick = () => {
     handleIncrementIndex();
     setOpc2Clicked(false); 
@@ -78,7 +75,7 @@ export default function Home() {
             <a href="">Desafíos</a></div>
         </div>
         <div className="top">
-          <Link href="/home">
+          <Link href="/">
             <img src="/flecha1.png" alt="Flecha" className="flecha" />
           </Link>
           <div className="barrafija">
@@ -89,7 +86,7 @@ export default function Home() {
         {index < totalPreguntas ? (
           <div className="nivel">
             <div className="pregunta">{pregunta}</div>
-            <Opc2 respuesta={respuesta2} isClicked={opc2Clicked} setIsClicked={setOpc2Clicked} />
+            <Opc2 respuesta={respuesta2} isClicked={opc2Clicked} setIsClicked={setOpc2Clicked} /> 
             <input 
               type="text" 
               value={userResponse} 
