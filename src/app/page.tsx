@@ -1,9 +1,20 @@
 "use client";
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from "./page.module.css";
 
 export default function Home() {
+  const [userName, setUserName] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Obtener el nombre del usuario desde localStorage
+    const storedUserName = localStorage.getItem('userName');
+    if (storedUserName) {
+      setUserName(storedUserName);
+    }
+  }, []);
+
   return (
     <div>
       <div className="cuerpo">
@@ -22,6 +33,11 @@ export default function Home() {
             <a href="">Desafíos</a>
           </div>
         </div>
+
+        {/* Mostrar "Hola [nombre]" con estilos aplicados directamente */}
+        {userName && (<h1 style={{color: 'white', position: 'absolute', right: 0, top: '20px', margin: 0, padding: '10px'}}>
+          Hola {userName}</h1>
+        )}
 
         <div className="nvl1">
           <img src="/star.png" alt="" />
@@ -44,9 +60,9 @@ export default function Home() {
         <div className="nvl3">
           <img src="/star.png" alt="" />
           <Link href="/type2">
-          <div className="box3">
-            <h1>NIVEL 3</h1>
-          </div>
+            <div className="box3">
+              <h1>NIVEL 3</h1>
+            </div>
           </Link>
         </div>
       </div>
