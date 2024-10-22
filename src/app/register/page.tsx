@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { createClient } from "../components/(supabase)/clientClient";
 import { useRouter } from "next/navigation";
+import styles from "./page.module.css";
 
 export default function Register() {
   const [nombre, setNombre] = useState("");

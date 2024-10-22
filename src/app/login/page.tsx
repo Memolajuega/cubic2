@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { createClient } from "../components/(supabase)/clientClient";
 import { useRouter } from "next/navigation";
+import styles from "./page.module.css";
 
 export default function Login() {
   const [mail, setMail] = useState("");
@@ -40,10 +41,10 @@ export default function Login() {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
+    <div className="cuerpo">
+      <h1 className="login">Ingresar</h1>
       {error && <p style={{ color: "red" }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="forms">
         <div>
           <label>Mail:</label>
           <input

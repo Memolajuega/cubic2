@@ -11,6 +11,7 @@
   float: left;
   font-family: "Kufam", sans-serif;
   background-color: #240433;
+  color: white;
 }
 
 a {
@@ -369,4 +370,37 @@ h1 {
 .box3 h1 {
   padding-top: 6.5vh;
   margin-top: 2.5vh;
+}
+
+.login {
+  text-align: center;
+  left: 0;
+  margin-left: 39%;
+  font-size: 5vw;
+  margin-top: 10vh;
+}
+
+.forms {
+  width: 100vw;
+  text-align: center;
+  float: left;
+  bottom: 0;
+  margin-bottom: 30vh;
+  position: absolute;
+}
+
+.forms input {
+  font-size: 3.5vw;
+  border-radius: 2vw;
+  margin-top: 3vw;
+  background-color: #4B1572;
+  border-color: #4B1572;
+}
+
+.forms button {
+  font-size: 3.5vw;
+  border-radius: 2vw;
+  margin-top: 3vw;
+  background-color: #4B1572;
+  border-color: #4B1572;
 }
