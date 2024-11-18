@@ -97,6 +97,17 @@ a {
   float: left;
 }
 
+.sombritatype1 {
+  height: .9vw;
+  width: 40.3vw;
+  background: radial-gradient(ellipse at center, rgba(156, 81, 183, 1) 20%, rgba(156, 81, 183, 0) 100%);
+  opacity: 20%;
+  border-radius: 1vw;
+  margin-top: 1vw;
+  margin-left: 3.9vw;
+  float: left;
+}
+
 .pregunta {
   color: white;
   text-align: center;
