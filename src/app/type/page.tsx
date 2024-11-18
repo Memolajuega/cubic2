@@ -85,7 +85,7 @@ export default function Home() {
             <a href="">Desafíos</a></div>
         </div>
         <div className="top">
-          <Link href="/">
+          <Link href="/home">
             <img src="/flecha1.png" alt="Flecha" className="flecha" />
           </Link>
           <div className="barrafija">

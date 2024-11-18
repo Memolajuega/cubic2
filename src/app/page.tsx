@@ -1,71 +1,74 @@
 "use client";
 
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import { useState } from "react";
+import { createClient } from "./components/(supabase)/clientClient";
+import Link from "next/link";
 import styles from "./page.module.css";
 
-export default function Home() {
-  const [userName, setUserName] = useState<string | null>(null);
+export default function Login() {
+  const [mail, setMail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const supabase = createClient();
 
-  useEffect(() => {
-    // Obtener el nombre del usuario desde localStorage
-    const storedUserName = localStorage.getItem('userName');
-    if (storedUserName) {
-      setUserName(storedUserName);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Verifica que los campos estén completos
+    if (!mail || !password) {
+      setError("Por favor, completa todos los campos.");
+      return;
     }
-  }, []);
+
+    // Busca al usuario en la base de datos
+    const { data: user, error: selectError } = await supabase
+      .from("usuarios")
+      .select("*")
+      .eq("mail", mail)
+      .eq("password", password) // Verifica que el password coincida
+      .single(); // single() asegura que solo obtienes un resultado
+
+    if (selectError || !user) {
+      setError("Mail o contraseña incorrectos.");
+    } else {
+      // Almacena el nombre del usuario en localStorage
+      localStorage.setItem("userName", user.nombre);
+
+      // Redirige a la página principal una vez que el usuario ha iniciado sesión
+      window.location.href = "/home";
+    }
+  };
 
   return (
-    <div>
-      <div className="cuerpo">
-        <div className="sidemenu">
-          <h1>CUBIC</h1>
-          <div>
-            <img src="/brain.png" alt="" />
-            <a href="">Aprender</a>
-          </div>
-          <div>
-            <img src="/user.png" alt="" />
-            <a href="">Perfil</a>
-          </div>
-          <div>
-            <img src="/target.png" alt="" />
-            <a href="">Desafíos</a>
-          </div>
+    <div className="cuerpo">
+      <h1 className="login">Ingresar</h1>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      <form onSubmit={handleSubmit} className="forms">
+        <div>
+          <label>Mail:</label>
+          <input
+            type="mail"
+            value={mail}
+            onChange={(e) => setMail(e.target.value)}
+          />
         </div>
-
-        {/* Mostrar "Hola [nombre]" con estilos aplicados directamente */}
-        {userName && (<h1 style={{color: 'white', position: 'absolute', right: 0, top: '20px', margin: 0, padding: '10px'}}>
-          Hola {userName}</h1>
-        )}
-
-        <div className="nvl1">
-          <img src="/star.png" alt="" />
-          <Link href="/type">
-            <div className="box1">
-              <h1>NIVEL 1</h1>
-            </div>
-          </Link>
+        <div>
+          <label>Contraseña:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </div>
-
-        <div className="nvl2">
-          <img src="/star.png" alt="" />
-          <Link href="/type1">
-            <div className="box2">
-              <h1>NIVEL 2</h1>
-            </div>
-          </Link>
-        </div>
-
-        <div className="nvl3">
-          <img src="/star.png" alt="" />
-          <Link href="/type2">
-            <div className="box3">
-              <h1>NIVEL 3</h1>
-            </div>
-          </Link>
-        </div>
-      </div>
+        <button type="submit">Iniciar sesión</button>
+      </form>
+      {/* Enlace a la página de registro */}
+      <p style={{ marginTop: "10px" }} className="registrate">
+        ¿No tienes una cuenta?{" "}
+        <Link href="/register" style={{ color: "blue", textDecoration: "underline" }}>
+          Regístrate aquí.
+        </Link>
+      </p>
     </div>
   );
 }

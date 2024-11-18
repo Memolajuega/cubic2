@@ -2,22 +2,20 @@
 
 import { useState } from "react";
 import { createClient } from "../components/(supabase)/clientClient";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function Register() {
-  const [nombre, setNombre] = useState("");
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const supabase = createClient();
-  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Verifica que todos los campos estén completos
-    if (!nombre || !mail || !password) {
+    // Verifica que los campos estén completos
+    if (!mail || !password) {
       setError("Por favor, completa todos los campos.");
       return;
     }
@@ -26,7 +24,6 @@ export default function Register() {
     const { error: insertError } = await supabase
       .from("usuarios")
       .insert([{ 
-        nombre, 
         mail, 
         password,
       }]);
@@ -35,23 +32,15 @@ export default function Register() {
       setError(insertError.message);
     } else {
       // Redirige al login una vez registrado
-      router.push("/login");
+      window.location.href = "/";
     }
   };
 
   return (
-    <div>
-      <h1>Registro</h1>
+    <div className="cuerpo">
+      <h1 className="login">Registro</h1>
       {error && <p style={{ color: "red" }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Nombre:</label>
-          <input
-            type="text"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-          />
-        </div>
+      <form onSubmit={handleSubmit} className="forms">
         <div>
           <label>Mail:</label>
           <input
@@ -70,6 +59,13 @@ export default function Register() {
         </div>
         <button type="submit">Registrarse</button>
       </form>
+      {/* Enlace al login */}
+      <p style={{ marginTop: "10px" }} className="registrate">
+        ¿Ya tienes una cuenta?{" "}
+        <Link href="/" style={{ color: "blue", textDecoration: "underline" }}>
+          Logeate aquí.
+        </Link>
+      </p>
     </div>
   );
 }

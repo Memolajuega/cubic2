@@ -387,16 +387,21 @@ h1 {
   top: 0;
   position: absolute;
   margin-left: 25vw;
-  margin-top: 28vh;
+  margin-top: 24vh;
 }
 
 .forms input {
-  font-size: 3.5vw;
+  font-size: 2.4vw;
   border-radius: 2vw;
   margin-top: 0.5vw;
   background-color: #4B1572;  
   border-width: 0 !important;
   width: 100%;
+  padding-left: 1.3vw;
+  color: white;
+  font-family: "Kufam", sans-serif;
+  height: 8vh;
+  padding-top: 1vh;
 }
 
 .forms button {
@@ -417,4 +422,10 @@ h1 {
   float: left;
   margin-left: 1vw;
   margin-top: 2vw;
+}
+
+.registrate {
+  bottom: 4vh;
+  position: absolute;
+  margin-left: 40vw;
 }
