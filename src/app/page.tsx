@@ -31,8 +31,8 @@ export default function Login() {
     if (selectError || !user) {
       setError("Mail o contraseña incorrectos.");
     } else {
-      // Almacena el nombre del usuario en localStorage
-      localStorage.setItem("userName", user.nombre);
+      // Almacena el user_id y nombre del usuario en localStorage
+      localStorage.setItem("userId", user.id); // Almacenamos el user_id
 
       // Redirige a la página principal una vez que el usuario ha iniciado sesión
       window.location.href = "/home";

@@ -15,10 +15,6 @@ export default function Indexador({ onIncrement, onDecrement, index, showContinu
           <h2 onClick={onIncrement}>Continuar</h2>
         </div>
       )}
-      <div className="estrellas">
-        <h1>{index}</h1>
-        <img src="/star.png" alt="Estrellas" className="star" />
-      </div>
     </div>
   );
 }
