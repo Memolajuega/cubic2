@@ -63,7 +63,7 @@ export default function Login() {
         <button type="submit">Iniciar sesión</button>
       </form>
       {/* Enlace a la página de registro */}
-      <p style={{ marginTop: "10px" }} className="registrate">
+      <p style={{ marginTop: "10px" }} className="registratehere">
         ¿No tienes una cuenta?{" "}
         <Link href="/register" style={{ color: "blue", textDecoration: "underline" }}>
           Regístrate aquí.
