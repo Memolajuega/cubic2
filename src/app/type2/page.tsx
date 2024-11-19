@@ -86,7 +86,6 @@ export default function Home() {
         {index < totalPreguntas ? (
           <div className="nivel">
             <div className="pregunta">{pregunta}</div>
-            <Opc2 respuesta={respuesta2} isClicked={opc2Clicked} setIsClicked={setOpc2Clicked} />
             <input 
               type="text" 
               value={userResponse} 
