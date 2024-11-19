@@ -1,4 +1,4 @@
-export default function Opc3Type1({ respuesta, isClicked, isCorrect, onClick }) {
+export default function Opc3Type1({ respuesta, isClicked, setIsClicked, isCorrect, seleccionada, onClick }) {
   const backgroundColor = isClicked
     ? (isCorrect ? '#4B9C61' : '#FC4F4F') // Verde para correcto, rojo para incorrecto
     : '#4B1572'; // Fondo inicial
@@ -9,6 +9,10 @@ export default function Opc3Type1({ respuesta, isClicked, isCorrect, onClick }) 
     : 'radial-gradient(ellipse at center, rgba(156, 81, 183, 1) 20%, rgba(156, 81, 183, 0) 100%)'; 
     
     <div className='sombritatype1' style={{ background: sombraBackground }}></div> */
+    let a = setIsClicked;
+    let b = seleccionada;
+    b = a;
+    a = b;
 
   return (
     <div className='opc3-type1'
