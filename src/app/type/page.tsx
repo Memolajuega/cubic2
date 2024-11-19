@@ -128,25 +128,19 @@ export default function Home() {
             <Opc1 
               respuesta={respuestas[0]} 
               isClicked={opc1Clicked} 
-              setIsClicked={setOpc1Clicked} 
               isCorrect={respuestas[0] === respuestaCorrecta} 
-              seleccionada={seleccionada}
               onClick={handleOpc1Click}
             />
             <Opc2 
               respuesta={respuestas[1]} 
               isClicked={opc2Clicked} 
-              setIsClicked={setOpc2Clicked} 
               isCorrect={respuestas[1] === respuestaCorrecta} 
-              seleccionada={seleccionada}
               onClick={handleOpc2Click}
             />
             <Opc3 
               respuesta={respuestas[2]} 
               isClicked={opc3Clicked} 
-              setIsClicked={setOpc3Clicked} 
               isCorrect={respuestas[2] === respuestaCorrecta} 
-              seleccionada={seleccionada}
               onClick={handleOpc3Click}
             />
           </div>
