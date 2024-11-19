@@ -1,4 +1,4 @@
-export default function Opc1({ respuesta, isClicked, setIsClicked, isCorrect, seleccionada, onClick }) {
+export default function Opc1({ respuesta, isClicked, isCorrect, onClick }) {
   const backgroundColor = isClicked
     ? (isCorrect ? '#4B9C61' : '#FC4F4F') // Verde para correcto, rojo para incorrecto
     : '#4B1572'; // Fondo inicial
