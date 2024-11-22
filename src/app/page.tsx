@@ -33,7 +33,7 @@ export default function Login() {
     } else {
       // Almacena el user_id y nombre del usuario en localStorage
       localStorage.setItem("userId", user.id); // Almacenamos el user_id
-
+      console.log(localStorage.getItem("userId"));
       // Redirige a la página principal una vez que el usuario ha iniciado sesión
       window.location.href = "/home";
     }
