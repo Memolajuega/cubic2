@@ -55,7 +55,7 @@ export default function Home() {
       const updateCountry = async () => {
         const { error } = await supabase
           .from('usuarios')
-          .update({ Nivel1: aciertos })
+          .update({ Nivel1: stars })
           .eq('id', localStorage.getItem("userId"));
 
         if (error) {
@@ -117,6 +117,8 @@ export default function Home() {
     setSeleccionada('');
   };
 
+  const stars = Math.round((aciertos / totalPreguntas) * 3);
+
   return (
     <div>
       <div className="cuerpo">
@@ -131,7 +133,10 @@ export default function Home() {
           <div>
             <img src="/target.png" alt="" />
             <a href="">Desafíos</a></div>
+
+            <h1> { stars } </h1>
         </div>
+
         <div className="top">
           <Link href="/home">
             <img src="/flecha1.png" alt="Flecha" className="flecha" />
@@ -173,7 +178,7 @@ export default function Home() {
           <div className="victoria">
             <div className="cuadro">
               <h1>¡Felicitaciones, ganaste!</h1>
-              <h2>Sumaste {aciertos} estrellas</h2>
+              <h2>Sumaste {stars} estrellas</h2>
               <img src="/star.png" alt="estrella" className="star"/>
             </div>
           </div>

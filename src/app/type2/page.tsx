@@ -14,6 +14,7 @@ export default function Home() {
   const [opc2Clicked, setOpc2Clicked] = useState(false);
   const [userResponse, setUserResponse] = useState("");
   const [buttonColor, setButtonColor] = useState("#4B1572"); // Color inicial del botón
+  const [aciertos, setAciertos] = useState<number>(0); // Aciertos
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserResponse(e.target.value);
@@ -24,6 +25,7 @@ export default function Home() {
       setOpc2Clicked(true); // Esto habilita el botón de "Continuar"
       setButtonColor("#4B9C61"); // Cambia el color del botón al verde
       setUserResponse(""); // Borra el campo de respuesta
+      setAciertos(prevAciertos => prevAciertos + 1);
     } else {
       alert("Respuesta incorrecta. Intenta de nuevo.");
     }
@@ -40,6 +42,25 @@ export default function Home() {
       setRespuesta2(preguntas[index].Rta);
     }
   };
+
+  useEffect(() => {
+    if (index >= totalPreguntas) {
+      const updateCountry = async () => {
+        const { error } = await supabase
+          .from('usuarios')
+          .update({ Nivel3: stars })
+          .eq('id', localStorage.getItem("userId"));
+
+        if (error) {
+          console.error('Error updating record:', error);
+        } else {
+          console.log('Record updated successfully');
+        }
+      };
+
+      updateCountry();
+    }
+  }, [index, totalPreguntas]);
 
   useEffect(() => {
     fetchPreguntas();
@@ -61,6 +82,8 @@ export default function Home() {
     handleIncrementIndex();
     setOpc2Clicked(false);
   };
+
+  const stars = Math.round((aciertos / totalPreguntas) * 3);
 
   return (
     <div>
@@ -111,7 +134,7 @@ export default function Home() {
           <div className="victoria">
             <div className="cuadro">
               <h1>¡Felicitaciones, ganaste!</h1>
-              <h2>Sumaste {index} estrellas</h2>
+              <h2>Sumaste {stars} estrellas</h2>
               <img src="/star.png" alt="estrella" className="star" />
             </div>
           </div>

@@ -51,6 +51,25 @@ export default function Home() {
     setSeleccionada(''); // Resetear respuesta seleccionada
   }, [index]);
 
+  useEffect(() => {
+    if (index >= totalPreguntas) {
+      const updateCountry = async () => {
+        const { error } = await supabase
+          .from('usuarios')
+          .update({ Nivel2: stars })
+          .eq('id', localStorage.getItem("userId"));
+
+        if (error) {
+          console.error('Error updating record:', error);
+        } else {
+          console.log('Record updated successfully');
+        }
+      };
+
+      updateCountry();
+    }
+  }, [index, totalPreguntas]);
+
   const handleIncrementIndex = () => {
     setIndex(prevIndex => Math.min(prevIndex + 1, totalPreguntas));
   };
@@ -98,6 +117,8 @@ export default function Home() {
     setOpc3type1Clicked(false);
     setSeleccionada('');
   };
+
+  const stars = Math.round((aciertos / totalPreguntas) * 3);
 
   return (
     <div>
@@ -155,7 +176,7 @@ export default function Home() {
           <div className="victoria">
             <div className="cuadro">
               <h1>¡Felicitaciones, ganaste!</h1>
-              <h2>Sumaste {aciertos} estrellas</h2>
+              <h2>Sumaste {stars} estrellas</h2>
               <img src="/star.png" alt="estrella" className="star"/>
             </div>
           </div>
