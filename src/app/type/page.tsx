@@ -133,8 +133,6 @@ export default function Home() {
           <div>
             <img src="/target.png" alt="" />
             <a href="">Desafíos</a></div>
-
-            <h1> { stars } </h1>
         </div>
 
         <div className="top">
