@@ -5,7 +5,7 @@ import { createClient } from "../components/(supabase)/clientClient";
 import Link from "next/link";
 import styles from "./page.module.css";
 
-export default function Register() {
+export default function Login() {
   const [mail, setMail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -20,25 +20,28 @@ export default function Register() {
       return;
     }
 
-    // Inserta los datos del usuario en la tabla "usuarios"
-    const { error: insertError } = await supabase
+    // Busca al usuario en la base de datos
+    const { data: user, error: selectError } = await supabase
       .from("usuarios")
-      .insert([{ 
-        mail, 
-        password,
-      }]);
+      .select("*")
+      .eq("mail", mail)
+      .eq("password", password) // Verifica que el password coincida
+      .single(); // single() asegura que solo obtienes un resultado
 
-    if (insertError) {
-      setError(insertError.message);
+    if (selectError || !user) {
+      setError("Mail o contraseña incorrectos.");
     } else {
-      // Redirige al login una vez registrado
-      window.location.href = "/login";
+      // Almacena el user_id y nombre del usuario en localStorage
+      localStorage.setItem("userId", user.id); // Almacenamos el user_id
+      console.log(localStorage.getItem("userId"));
+      // Redirige a la página principal una vez que el usuario ha iniciado sesión
+      window.location.href = "/home";
     }
   };
 
   return (
     <div className="cuerpo">
-      <h1 className="login">Registro</h1>
+      <h1 className="login">Ingresar</h1>
       {error && <p style={{ color: "red" }}>{error}</p>}
       <form onSubmit={handleSubmit} className="forms">
         <div>
@@ -57,13 +60,13 @@ export default function Register() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit">Registrarse</button>
+        <button type="submit">Iniciar sesión</button>
       </form>
-      {/* Enlace al login */}
-      <p style={{ marginTop: "10px" }} className="registrate">
-        ¿Ya tienes una cuenta?{" "}
-        <Link href="/" style={{ color: "blue", textDecoration: "underline" }}>
-          Logeate aquí.
+      {/* Enlace a la página de registro */}
+      <p style={{ marginTop: "10px" }} className="registratehere">
+        ¿No tienes una cuenta?{" "}
+        <Link href="/register" style={{ color: "blue", textDecoration: "underline" }}>
+          Regístrate aquí.
         </Link>
       </p>
     </div>

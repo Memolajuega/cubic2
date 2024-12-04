@@ -488,3 +488,48 @@ h1 {
 .imageLarge {
   width: 17.1vw !important; /* Ancho de las imágenes 'dos.png' y 'tres.png' */
 }
+
+.contenedorimagen {
+  width: 50vw;
+  height: 100vh;
+  float: left;
+}
+
+.landingimg {
+  width: 30vw;
+  margin-left: 15vw;
+  margin-top: 20vh;
+}
+
+.contenedortexto {
+  width: 50vw;
+  height: 100vh;
+  float: right;
+}
+
+.tit {
+  float: left;
+  margin-top: 20vh;
+  font-size: 6vw;
+  margin-bottom: 0;
+}
+
+.subtit {
+  float: left;
+  font-size: 3vw;
+  margin-top: 0;
+}
+
+.entrar {
+  background-color: #4B1572;
+  border-radius: 3vw;
+  width: 23vw;
+  float: left;
+  height: 18vh;
+  color: white;
+  font-size: 3vw;
+  font-family: "Kufam", sans-serif;
+  border: none;
+  padding-top: 1.5vh;
+  margin-left: -1vw;
+}
