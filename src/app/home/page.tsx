@@ -58,7 +58,15 @@ export default function Home() {
         </div>
         
         <div className="nvl1">
-          <img src={starImages[niveles.Nivel1]} alt={`${niveles.Nivel1} estrellas`} />
+          <img 
+            src={starImages[niveles.Nivel1]} 
+            alt={`${niveles.Nivel1} estrellas`} 
+            className={
+              niveles.Nivel1 === 2 ? "imageMedium" :
+              niveles.Nivel1 === 3 ? "imageLarge" : 
+              "imageSmall"
+            }
+          />
           <Link href="/type">
             <div className="box1">
               <h1>NIVEL 1</h1>
@@ -67,7 +75,15 @@ export default function Home() {
         </div>
 
         <div className="nvl2">
-          <img src={starImages[niveles.Nivel2]} alt={`${niveles.Nivel2} estrellas`} />
+          <img 
+            src={starImages[niveles.Nivel2]} 
+            alt={`${niveles.Nivel2} estrellas`} 
+            className={
+              niveles.Nivel2 === 2 ? "imageMedium" :
+              niveles.Nivel2 === 3 ? "imageLarge" : 
+              "imageSmall"
+            }
+          />
           <Link href="/type1">
             <div className="box2">
               <h1>NIVEL 2</h1>
@@ -76,7 +92,15 @@ export default function Home() {
         </div>
 
         <div className="nvl3">
-          <img src={starImages[niveles.Nivel3]} alt={`${niveles.Nivel3} estrellas`} />
+          <img 
+            src={starImages[niveles.Nivel3]} 
+            alt={`${niveles.Nivel3} estrellas`} 
+            className={
+              niveles.Nivel3 === 2 ? "imageMedium" :
+              niveles.Nivel3 === 3 ? "imageLarge" : 
+              "imageSmall"
+            }
+          />
           <Link href="/type2">
             <div className="box3">
               <h1>NIVEL 3</h1>
@@ -87,4 +111,3 @@ export default function Home() {
     </div>
   );
 }
-

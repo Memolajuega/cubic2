@@ -476,3 +476,15 @@ h1 {
   padding-top: 1vh;
   margin-left: 15%;
 }
+
+.imageSmall {
+  width: 5vw; /* Ancho de las imágenes 'none' y 'star.png' */
+}
+
+.imageMedium {
+  width: 10.5vw !important; /* Ancho de las imágenes 'dos.png' y 'tres.png' */
+}
+
+.imageLarge {
+  width: 17.1vw !important; /* Ancho de las imágenes 'dos.png' y 'tres.png' */
+}
